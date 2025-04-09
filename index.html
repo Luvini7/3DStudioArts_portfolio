@@ -256,19 +256,25 @@
         <section id="realidade-virtual">
             <h2>Realidade Virtual</h2>
             <div class="media-grid">
-                <div class="media-item">
-                    <video class="video-js vjs-theme-fantasy my-video" controls autoplay muted>
-                        <source src="videos/3DStudioArts_Unreal.mp4" type="video/mp4">
-                    </video>
+
+                <!-- Primeira linha: vídeo 16:9 + imagem 16:9 -->
+                <div class="media-item media-16-9">
+                  <video class="video-js vjs-theme-fantasy my-video" controls autoplay muted>
+                    <source src="videos/Realidade Virtual - Fachada.mp4" type="video/mp4">
+                  </video>
                 </div>
-                <div class="media-item">
-                    <video class="video-js vjs-theme-fantasy my-video" controls autoplay muted>
-                        <source src="videos/Produce.mp4" type="video/mp4">
-                    </video>
+            
+                <div class="media-item media-16-9">
+                  <img src="img/OCULOS-VR-MODELO.webp" alt="óculos vr">
                 </div>
-                <div class="media-item image-item">
-                    <img src="img/OCULOS-VR-MODELO.webp" alt="óculos vr">
+            
+                <!-- Segunda linha: vídeo 1:1 ocupando linha toda -->
+                <div class="media-item media-1-1 full-width">
+                  <video class="video-js vjs-theme-fantasy my-video" controls autoplay muted>
+                    <source src="videos/3DStudioArts_Unreal.mp4" type="video/mp4">
+                  </video>
                 </div>
+            
             </div>
         </section>
 
