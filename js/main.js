@@ -64,19 +64,44 @@ if (window.innerWidth <= 1023) {
     });
 }
 
-//home-slider
+//sliders effect
 document.addEventListener("DOMContentLoaded", function () {
-    const images = document.querySelectorAll(".slider img");
-    let currentIndex = 0;
+    const sliders = document.querySelectorAll(".slider, .sobre-slider");
 
-    function changeImage() {
-        images[currentIndex].classList.remove("active");
-        currentIndex = (currentIndex + 1) % images.length;
+    sliders.forEach((slider) => {
+        const images = slider.querySelectorAll("img");
+        let currentIndex = 0;
+
+        if (images.length === 0) return;
+
         images[currentIndex].classList.add("active");
-    }
 
-    images[currentIndex].classList.add("active");
-    setInterval(changeImage, 4000); // Troca de imagem a cada 4 segundos
+        setInterval(() => {
+            images[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add("active");
+        }, 4000);
+    });
+});
+
+//animações de sobre nós
+document.addEventListener("DOMContentLoaded", () => {
+    const fadeElements = document.querySelectorAll(".fade-in")
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Adiciona um delay progressivo (efeito cascata)
+                setTimeout(() => {
+                    entry.target.classList.add("show");
+                }, index * 200); // 200ms entre cada
+            }
+        });
+    }, {
+        threshold: 0.3
+    });
+
+    fadeElements.forEach((el) => observer.observe(el));
 });
 
 //menu-toogle
